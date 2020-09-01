@@ -1,0 +1,117 @@
+import "./styles.css";
+ 
+var array1 = [1, 2, 3];
+var array2 = [4, 5, 6];
+var array3 = array1.concat(array2);
+const array4 = [...array1, ...array2]
+console.log(array4);
+ 
+//===========================================
+let data = [
+ { name: "john", age: 5 },
+ { name: "tom", age: 22 },
+ { name: "jack", age: 40 }
+];
+ 
+var Show = data.map(function (item, index, array) {
+ return item.name;
+});
+console.log(Show);
+ 
+//===========================================
+var dataAdd = (data, email) => [
+ { data, email: "john@wistron.com" },
+ { data, email: "tom@wistron.com" },
+ { data, email: "jack@wistron.com" }
+];
+console.log(dataAdd());
+ 
+const dataAddNew = data.map(d => ({
+ ...d,
+ email: `${d.name}@wistron.com`
+}))
+console.log(dataAddNew);
+//===========================================
+ 
+let data2 = [
+ { name: "john", age: 18, email: "john@wistron.com" },
+ { name: "tom", age: 20, email: "tom@wistron.com" },
+ { name: "jack", age: 40, email: "jack@wistron.com" }
+];
+ 
+var Over30Data = data2.filter(function (item, index, array) {
+ return item.age > 30;
+});
+console.log(Over30Data.name);
+ 
+var Over30 = data2.every(function (item, index, array) {
+ return item.age > 30;
+});
+console.log(Over30);
+ 
+var NotReach10 = data2.every((item, index, array)=>{
+ return item.age < 10;
+});
+console.log(NotReach10);
+ 
+let data3 = {
+ "1234567890": {
+ id: "1234567890",
+ name: "Nina Ricci"
+ },
+ "2345678901": {
+ id: "2345678901",
+ name: "Hello Kitty"
+ },
+ "3456789012": {
+ id: "3456789012",
+ name: "Pusheen the cat"
+ }
+};
+console.log(Object.keys(data3));
+ 
+let data3ID = Object.values(data3).map(function (item) {
+ return item.name;
+});
+console.log(data3ID);
+ 
+//======================
+const obj1 = { a: 1, b: 2 };
+let obj2 = obj1;
+let obj3 = Object.assign({}, obj1);
+ 
+obj2.a = 3;
+obj1.b = 5;
+obj3.a = 7;
+ 
+console.log(obj1.a); //3 //obj1=obj2相互影響
+console.log(obj1.b); //5
+console.log(obj2.a); //3
+console.log(obj2.b); //5 //同obj1改變
+console.log(obj3.a); //7
+console.log(obj3.b); //2
+ 
+//=========================
+const a = "10";
+console.log(10 == a); //true
+console.log(10 === a); //false 數字!=字串
+ 
+console.log(null == undefined); //true
+console.log(null === undefined); //false
+//=========================
+// for (var i = 0; i < 5; i++) {
+// SaveI(i + 1);
+// }
+ 
+// function SaveI(i) {
+// setTimeout(function () {
+// console.log(i);
+// }, 20);
+// }
+ 
+for(let i = 0; i < 5; i++) {
+ setTimeout(()=>{ console.log(i+1); }, 20);
+}
+ 
+console.log(1 + "2" * 3 + "4");
+//1+6+'4'
